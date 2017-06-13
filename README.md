@@ -6,25 +6,29 @@ At this moment this plugin is implemented only for Android!
 
 ## Demos
 
-See in https://github.com/fabiorogeriosj/cordova-plugin-sensors-demo
+See in https://github.com/rhalff/cordova-plugin-sensors-demo
 
 ## Install
 
-    $ cordova plugin add https://github.com/fabiorogeriosj/cordova-plugin-sensors.git
+    $ cordova plugin add https://github.com/rhalff/cordova-plugin-sensors.git
 
-## Methods    
+## Methods
 
-#### sensors.enableSensor("TYPE_SENSOR")
+#### sensors.enable(sensors.ACCELERATOR)
 
 Enable sensor.
 
-#### sensors.disableSensor()
+#### sensors.disable(sensors.ACCELERATOR)
 
 Disable sensor.
 
-#### sensors.getState(sucessCallBack)
+#### sensors.getState(sensors.ACCELERATOR, successCallBack)
 
-Get values sensor.
+Get state.
+
+#### sensors.stop()
+
+Stops listening to all sensors.
 
 ## Using in Ionic
 
@@ -36,7 +40,7 @@ Get values sensor.
       };
 
       document.addEventListener("deviceready", function () {
-        
+
         sensors.enableSensor("PROXIMITY");
 
         $interval(function(){
@@ -49,44 +53,49 @@ Get values sensor.
   });
 ```
 
-## Type sensors
+## Sensors Types
 
-**PROXIMITY** - Measures the proximity of an object in cm relative to the view screen of a device.
+```
+// Android Standard
 
-**ACCELEROMETER** - Measures the acceleration force in m/s2 that is applied to a device on all three physical axes (x, y, and z), including the force of gravity.
+ACCELEROMETER: 1,
+ALL: -1,
+AMBIENT_TEMPERATURE: 13,
+DEVICE_PRIVATE_BASE: 65536,
+GAME_ROTATION_VECTOR: 15,
+GEOMAGNETIC_ROTATION_VECTOR: 20,
+GRAVITY: 9,
+GYROSCOPE: 4,
+GYROSCOPE_UNCALIBRATED: 16,
+HEART_BEAT: 31,
+HEART_RATE: 21,
+LIGHT: 5,
+LINEAR_ACCELERATION: 10,
+MAGNETIC_FIELD: 2,
+MAGNETIC_FIELD_UNCALIBRATED: 14,
+MOTION_DETECT: 30,
+ORIENTATION: 3,
+POSE_6DOF: 28,
+PRESSURE: 6,
+PROXIMITY: 8,
+RELATIVE_HUMIDITY: 12,
+ROTATION_VECTOR: 11,
+SIGNIFICANT_MOTION: 17,
+STATIONARY_DETECT: 29,
+STEP_COUNTER: 19,
+STEP_DETECTOR: 18,
+TEMPERATURE: 7,
 
-**GRAVITY** - Measures the force of gravity in m/s2 that is applied to a device on all three physical axes (x, y, z).
+// Epson Moverio
+HEADSET_TAP: 8193,
+HEADSET_FREE_FALL: 8194,
+HEADSET_MOVE_STATE: 8195,
+HEADSET_VEHICLE_STATE: 8196,
 
-**GYROSCOPE** - Measures a device's rate of rotation in rad/s around each of the three physical axes (x, y, and z).
-
-**GYROSCOPE_UNCALIBRATED** - Rate of rotation (without drift compensation) around the x axis.
-
-**LINEAR_ACCELERATION** - Measures the acceleration force in m/s2 that is applied to a device on all three physical axes (x, y, and z), excluding the force of gravity.
-
-**ROTATION_VECTOR** - Measures the orientation of a device by providing the three elements of the device's rotation vector.
-
-**STEP_COUNTER** - Number of steps taken by the user since the last reboot while the sensor was activated.
-
-**GAME_ROTATION_VECTOR** - Rotation vector component along the x axis (x * sin(θ/2)).
-
-**GEOMAGNETIC_ROTATION_VECTOR** - Rotation vector component along the x axis (x * sin(θ/2)).
-
-**MAGNETIC_FIELD** - Measures the ambient geomagnetic field for all three physical axes (x, y, z) in μT.
-
-**MAGNETIC_FIELD_UNCALIBRATED** - Geomagnetic field strength (without hard iron calibration) along the x axis.
-
-**ORIENTATION** - Measures degrees of rotation that a device makes around all three physical axes (x, y, z).
-
-**AMBIENT_TEMPERATURE** - Measures the ambient room temperature in degrees Celsius (°C). See note below.
-
-**LIGHT** - Measures the ambient light level (illumination) in lx.
-
-**PRESSURE** - Measures the ambient air pressure in hPa or mbar.
-
-**RELATIVE_HUMIDITY** - Measures the relative ambient humidity in percent (%).
-
-**TEMPERATURE** - Measures the temperature of the device in degrees Celsius (°C). 
-
-
+CONTROLLER_MAGNETIC_FIELD: 1048578,
+CONTROLLER_ACCELEROMETER: 1048577,
+CONTROLLER_GYROSCOPE: 1048580,
+CONTROLLER_ROTATION_VECTOR: 1048587,
+```
 
 For more information about sensors **Android** see [Android Sensors Overview](http://developer.android.com/guide/topics/sensors/sensors_overview.html)

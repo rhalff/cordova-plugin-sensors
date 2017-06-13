@@ -55,6 +55,10 @@ module.exports = {
 
   disable: function(SensorType) {
       cordova.exec(null, null, "Sensors", "disable", [SensorType]);
-  }
+  },
+
+  stop: function() {
+      cordova.exec(null, null, "Sensors", "stop", []);
+  },
 };
 

@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fabiorogeriosj/cordova-plugin-sensors.git"
+    "url": "git+https://github.com/rhalff/cordova-plugin-sensors.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fabiorogeriosj/cordova-plugin-sensors/issues"
+    "url": "https://github.com/rhalff/cordova-plugin-sensors/issues"
   },
-  "homepage": "https://github.com/fabiorogeriosj/cordova-plugin-sensors#readme"
+  "homepage": "https://github.com/rhalff/cordova-plugin-sensors#readme"
 }
